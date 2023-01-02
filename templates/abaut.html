@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-10">
+        <div class="bl-light mb-3" style="padding:30px;">
+            <h3>Sayt xaqida</h3>
+<h4 class="mb-3">
+NEWSROOM jahonda va O'zbekistondan foydalanishga kirishgan yangiliklarni o'zbek o'qishlariga sodda va tushunarli tilda hamda tezkor etib berishga mo'ljallangan internet-nashrdir.
+
+Loyiha 2022 yilning fevralida ishini boshlagan.
+    <a href="https://www.facebook.com/ismatillo.ismatov.7"> Facebook</a>,  <a href="https://www.instagram.com/ismatilloismatov/">Instagram</a><a href="https://t.me/Ismatilloismatov"> Telegram</a> va boshqa ijtimoiy tarmoqlardagi sahifalarimiz   ishlamoqda.
+
+NEWSROOM sayti materiallaridan foydalanish shartlari
+NEWSROOM sayti taʼmirlanishi mavjud boʻlgan koʻchmachilik boʻyicha saytda chop etilgan materiallar, manbalar asosida koʻchirib chiqilgan maʼlumotlar asosliligi uchun (manbasi saqlab qolingan maʼlumotlarga) javobgarlikni oʻz kuchiga ega boʻlmaydi.
+Saytda chop etilgan maqola yuzasidan, chop etish mumkini va sayt tahriyatining fikri boshqa mumkini mumkin.
+Shuningdek, sayt ta'minotchilarining yuborgan xatlari, fikrlariga har biriga javob yo'qotish majburiyatini olmaydi.
+</h4>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-3">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+                <h3 style="padding:center" class="m-0">Bizning jamoa</h3>
+            </div>
+
+            <div class="owl-carousel owl-carousel-2 carousel-item-4 position-relative">
+                {% for t in team %}
+                <div class="position-relative overflow-hidden" style="height: 300px;">
+                    <img class="img-fluid w-100 h-100" src="{{ t.image.url }}" style="object-fit: cover;">
+
+                    <div class="overlay">
+                        <div class="mb-1" style="font-size: 13px;">
+                            <a class="text-white" href="">{{ t.name }}</a>
+                            <span class="px-1 text-white">/</span>
+                            <a class="text-white" href="">{{ t.professional }}</a>
+                        </div>
+                        <a class="h4 m-0 text-white" href="">{{ post.title }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+
+
+{% endblock %}

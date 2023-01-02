@@ -1,0 +1,310 @@
+{% load static %}
+{% load bootstrap_icons %}
+{% load i18n %}
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="utf-8">
+    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <!-- CSS only -->
+
+    <!-- JavaScript Bundle with Popper -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- Favicon -->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+          rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- category.html-->
+    <meta charset="utf-8">
+    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+
+    <!-- single.html-->
+    <meta charset="utf-8">
+    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <!--contact -->
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+
+    <!-- Customized Bootstrap Stylesheet -->
+</head>
+<body>
+
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row align-items-center bg-light px-lg-1">
+<!--                                <div class="text-truncate"><a class="text-secondary" href="{% url 'posts:index' %}">{% translate 'Home' %}</a></div>-->
+<!--                                <div class="text-truncate"><a class="text-secondary" href="{% url 'posts:about' %}">{% translate 'about' %}</a></div>-->
+        <p><a href="{% url 'posts:index' %}" class="nav-item nav-link">{% translate 'Home' %}</a></p>
+        <p><a href="{% url 'posts:about' %}" class="nav-item nav">About</a></p>
+        <p><a href="{% url 'posts:contact' %}" class=" nav-link">Contact</a></p>
+        <p style="margin-left:800px">{% now "j F Y " %}</p>
+    </div>
+</div>
+<div style="margon">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+    <form action="{% url 'set_language' %}" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select name="language" onchange="this.form.submit()">
+            {% for language in languages %}
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+<div class="container-fluid p-0 mb-3">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
+        <a href="" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">{% translate "News" %}</span>Room</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+        <div class="col-lg-4">
+            <a href="{% url 'posts:index' %}" class="navbar-brand d-none d-lg-block">
+                <h2 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h2>
+            </a>
+        </div>
+
+<!--                <a href="{% url 'posts:contact' %}" class="nav-item nav-link">Contact</a>-->
+            </div>
+            <div class="navbar-nav mr-auto py-0">
+                <a href="category.html" class="nav-item nav-link active">{% translate 'Categories' %}</a>
+                {% for category in categories %}
+                <a href="{% url 'posts:category' category.id %}" class="nav-item nav-link">{{category.title}}</a>
+                                {% endfor %}
+
+<!--            <form action="#" class="navbar-search pull-left">-->
+<!--                <input type="text" placeholder="Search"-->
+<!--                       class="search-query span2 ">-->
+<!--                <a class="search-button" href="#"></a>-->
+<!--            </form>-->
+<!--    `            <div class="search_list" id="search">-->
+<!--                <div class="card" id="product-list">-->
+<!--                </div>-->
+
+</div>
+</div>
+    </nav>
+
+        </div>
+
+   <style>
+   .search_list {
+    position: absolute;
+    background: #fff;
+    z-index: 199;
+    padding: 10px;
+    width: 300px;
+    border-radius: 35px;
+    overflow: auto;
+    display: none;
+    box-shadow: 4px 5px 6px black;
+    }
+    .product-title {
+    padding: 2px;
+    }
+    .img{
+    padding:10px;
+    }
+    </style>
+    
+<script>
+    function SearchFunction(value){
+		console.log(value);
+		var search_list = document.getElementById('search');
+		if(window.XMLHttpRequest){
+			var xhttp = new XMLHttpRequest();
+		}else{
+			var xhttp = new ActiveXObject("Micrasoft.XMLHTTP");
+		}
+		xhttp.onreadystatechange = function(){
+			if(xhttp.readyState === 4 &&  xhttp.status === 200){
+				var data = JSON.parse(this.responseText);
+				console.log(data);
+
+				var products_list = document.getElementById('posts-list');
+				var p = '<p>'
+				for(var i=0; i < data.length; i++){
+					p += '<p><img src="'+data[i].image+'" class="img" width="50"><a href="/detail/'+data[i].id+'">'+data[i].title+'</a>'
+					products_list.innerHTML = p;
+
+					search_list.style = "display:block";
+
+				}
+			}
+		}
+		var url = '{% url "posts:search_post" %}'
+		var url = url+"?data="+value;
+		xhttp.open("GET",url,true);
+		xhttp.send()
+	}
+
+</script>
+</div>
+
+
+
+{% block content %}
+
+{% endblock content %}
+
+<!-- Footer Start -->
+<div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5">
+            <a href="{% url 'posts:index' %}" class="navbar-brand">
+                <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
+            </a>
+            <p>Sayt materiallaridan to'liq yoki qisman foydalanilganda veb-sayt manzilini saqlash shart.
+                 O'zMAA internet-OAV guvohnomasi raqami: 1124 Rasmiy xabarlarda va bloglarda ketgan ma'lumotlar
+                  - maqolalarga mualliflar va blogerlarning o'zlari mas'uldirlar.
+
+</p>
+<!--            <div class="d-flex justify-content-start mt-4">-->
+<!--                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"-->
+<!--                   href="#"><i class="fab fa-twitter"></i></a>-->
+<!--                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"-->
+<!--                   href="https://www.facebook.com/ismatillo.ismatov.7"><i class="fab fa-facebook-f"></i></a>-->
+<!--                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"-->
+<!--                   href="#"><i class="fab fa-linkedin-in"></i></a>-->
+<!--                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"-->
+<!--                   href="https://www.instagram.com/ismatilloismatov/"><i class="fab fa-instagram"></i></a>-->
+<!--                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"-->
+<!--                   href="https://www.youtube.com/channel/UCxXljCMJ72Py6UtisNzBY4g"><i class="fab fa-youtube"></i></a>-->
+<!--            </div>-->
+        </div>
+        <div class="col-lg-4  col-md-5 mb-">
+            <h4 class="font-weight-bold mb-4">Categories</h4>
+            <div class="d-flex flex-wrap m-n1">
+                {% for c in categories %}
+                <a href="{% url 'posts:category' c.pk %}" class="btn btn-sm btn-outline-secondary m-1">{{ c.title }}</a>
+                {% endfor %}
+            </div>
+                        <div class="d-flex justify-content-start mt-4">
+                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                   href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                   href="https://www.facebook.com/ismatillo.ismatov.7"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                   href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                   href="https://www.instagram.com/ismatilloismatov/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                   href="https://www.youtube.com/channel/UCxXljCMJ72Py6UtisNzBY4g"><i class="fab fa-youtube"></i></a>
+            </div>
+
+        </div>
+
+
+<!--        <div class="col-lg-3 col-md-6 mb-5">-->
+<!--            <h4 class="font-weight-bold mb-4">Tags</h4>-->
+
+<!--            <div class="d-flex flex-wrap m-n1">-->
+<!--                {% for tag in tags%}-->
+
+<!--                <a href="{% url 'posts:tag_view' tag.id %}" class="btn btn-sm btn-outline-secondary m-1">{{ tag.title }}</a>-->
+<!--                {% endfor %}-->
+
+<!--            </div>-->
+
+
+<!--        </div>-->
+         <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="font-weight-bold mb-4">Quick Links</h4>
+            <div class="d-flex flex-column justify-content-start">
+                <a class="text-secondary mb-2" href="{% url 'posts:about' %}"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
+                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
+                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
+                <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms &
+                    conditions</a>
+                <a class="text-secondary" href="{% url 'posts:contact' %}"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+
+

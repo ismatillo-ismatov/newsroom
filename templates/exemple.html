@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<div class="container">
+  <blockquote>Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.
+    <cite>- Linus Torvalds</cite>
+  </blockquote>
+</div>
+<style>
+  
+  
+
+</style>
+{% endblock %}
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--    <title>Autocomplete</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form>-->
+<!--    <label for="posts">Posts</label>-->
+<!--    <input type="text" name="posts" id="posts">-->
+<!--</form>-->
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--    <title>Autocomplete</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<form>-->
+<!--    <label for="posts">Posts</label>-->
+<!--    <input type="text" name="posts" id="posts">-->
+<!--</form>-->
+
+<!--<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>-->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<script>
+  $( function() {
+    $(" #posts" ).autocomplete({
+      source: '{% url "posts:exem" %}',
+      minLength:2
+    });
+  } );
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
