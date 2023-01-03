@@ -126,14 +126,13 @@
                             <img src="{{ p.image.url  }}" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">{{ p.category }}</a>
-                                  <i> {% bs_icon 'eye' size='1.0em' %}{{ post.views }}</i>
+                                  <i> {% bs_icon 'eye' size='1.0em' %}{{ p.views }}</i>
+                                    <span class="px-1">/</span>
 
-<!--                                    <span class="px-1">{{ p.views }}</span>-->
                                     <i class="text-center"><span>{% bs_icon 'clock' size='1.0em' %}{{ p.post_date }}</span></i>
 
                                 </div>
-                                <a class="h6 m-0" href="{% url 'posts:post-detail' p.pk %}">{{ p.text|slice:50|safe }}</a>
+                                <a class="h6 m-0" href="{% url 'posts:post-detail' p.pk %}">{{ p.title|slice:50 }}</a>
                             </div>
                             {% endif %}
                         </div>

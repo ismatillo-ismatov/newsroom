@@ -122,7 +122,7 @@
                                     <span class="px-1">/</span>
                                     <span>{{ post.post_date }}</span>
                                 </div>
-                                <a class="h4 m-0" href="{% url 'posts:post-detail' post.pk %}">{{ post.title1}}</a>
+                                <a class="h4 m-0" href="{% url 'posts:post-detail' post.pk %}">{{ post.title}}</a>
                             </div>
                         </div>
                                                 {% endif %}
@@ -300,15 +300,15 @@
                             <img src="{{ p.image.url }}" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">{{ p.category }}</a>
-                                    <span class="px-1">/</span>
-                                    <span>{{ p.post_date }}</span>
+                               <i> {% bs_icon 'eye' size='1.0em' %}{{ p.views }}</i>
 
-                                    <<span class="px-1">{{ p.views }}</span>
+                                    <span class="px-1">/</span>
+
+                                            <i>{% bs_icon 'clock' size='1.0em' %}{{ p.post_date }}</i>
 
                                 </div>
                                 <a class="h6 m-0" href="{% url 'posts:post-detail' p.pk %}">{{ p.title }}</a>
-                                                                  <i> {% bs_icon 'eye' size='1.0em' %}{{ p.views }}</i>
+
 
                             </div>
 

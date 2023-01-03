@@ -92,13 +92,15 @@
     <div class="row align-items-center bg-light px-lg-1">
 <!--                                <div class="text-truncate"><a class="text-secondary" href="{% url 'posts:index' %}">{% translate 'Home' %}</a></div>-->
 <!--                                <div class="text-truncate"><a class="text-secondary" href="{% url 'posts:about' %}">{% translate 'about' %}</a></div>-->
+
         <p><a href="{% url 'posts:index' %}" class="nav-item nav-link">{% translate 'Home' %}</a></p>
         <p><a href="{% url 'posts:about' %}" class="nav-item nav">About</a></p>
         <p><a href="{% url 'posts:contact' %}" class=" nav-link">Contact</a></p>
-        <p style="margin-left:800px">{% now "j F Y " %}</p>
+        <p style="margin-left:850px">{% now "j F Y " %}</p>
     </div>
 </div>
-<div style="margon">
+
+<div>
     {% get_current_language as LANGUAGE_CODE %}
     {% get_available_languages as LANGUAGES %}
     {% get_language_info_list for LANGUAGES as languages %}

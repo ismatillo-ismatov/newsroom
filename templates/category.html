@@ -1,6 +1,6 @@
 {%  extends 'base.html' %}
 {% load i18n %}
-
+{% load bootstrap_icons %}
 {% load static %}
 {% block content %}
 
@@ -159,7 +159,8 @@ href="#"
                             <img src="{{ p.image.url }}" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">{{ p.category }}</a>
+                                  <i> {% bs_icon 'eye' size='1.0em' %}{{ p.views }}</i>
+
                                     <span class="px-1">/</span>
                                     <span>{{ p.post_date }}</span>
                                 </div>
