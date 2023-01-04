@@ -96,21 +96,38 @@
         <p><a href="{% url 'posts:index' %}" class="nav-item nav-link">{% translate 'Home' %}</a></p>
         <p><a href="{% url 'posts:about' %}" class="nav-item nav">About</a></p>
         <p><a href="{% url 'posts:contact' %}" class=" nav-link">Contact</a></p>
-        <p style="margin-left:850px">{% now "j F Y " %}</p>
+        <p style="margin-left:750px">{% now "j F Y " %}</p>
+<!--                <div class="mt-90">-->
+<!--    {% get_current_language as LANGUAGE_CODE %}-->
+<!--    {% get_available_languages as LANGUAGES %}-->
+<!--    {% get_language_info_list for LANGUAGES as languages %}-->
+<!--    <form action="{% url 'set_language' %}" method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <input name="next" type="hidden" value="{{ redirect_to }}">-->
+<!--        <select  name="language" onchange="this.form.submit()">-->
+<!--            {% for language in languages %}-->
+<!--            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>-->
+<!--                 {{ language.code }}-->
+<!--            </option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--    </form>-->
+<!--</div>-->
+
     </div>
 </div>
 
-<div>
+<div class="pl-1">
     {% get_current_language as LANGUAGE_CODE %}
     {% get_available_languages as LANGUAGES %}
     {% get_language_info_list for LANGUAGES as languages %}
     <form action="{% url 'set_language' %}" method="POST">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}">
-        <select name="language" onchange="this.form.submit()">
+        <select class="p-r-10" name="language" onchange="this.form.submit()">
             {% for language in languages %}
             <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }} ({{ language.code }})
+                 {{ language.code }}
             </option>
             {% endfor %}
         </select>
@@ -139,6 +156,23 @@
                 {% for category in categories %}
                 <a href="{% url 'posts:category' category.id %}" class="nav-item nav-link">{{category.title}}</a>
                                 {% endfor %}
+                <div>
+<!--    {% get_current_language as LANGUAGE_CODE %}-->
+<!--    {% get_available_languages as LANGUAGES %}-->
+<!--    {% get_language_info_list for LANGUAGES as languages %}-->
+<!--    <form class="mb-50" action="{% url 'set_language' %}" method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <input name="next" type="hidden" value="{{ redirect_to }}">-->
+<!--        <select class="p-r-10 " name="language" onchange="this.form.submit()">-->
+<!--            {% for language in languages %}-->
+<!--            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>-->
+<!--                 {{ language.code }}-->
+<!--            </option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--    </form>-->
+<!--</div>-->
+
 
 <!--            <form action="#" class="navbar-search pull-left">-->
 <!--                <input type="text" placeholder="Search"-->
@@ -150,6 +184,7 @@
 <!--                </div>-->
 
 </div>
+    </nav>
 </div>
     </nav>
 

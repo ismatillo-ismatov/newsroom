@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 from django.utils.translation import gettext_lazy as _
 
-import environ
 
-env = environ.Env()
-environ.Env.read_env()
 
 
 from pathlib import Path
@@ -29,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-j(#$j#)%kxeeydcos2jf=icyk1q3izo#0euk=!u+pwbphjn$c6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',default=False, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -153,12 +150,6 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-# EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
-# EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'b2ee9d71829efc'
 EMAIL_HOST_PASSWORD = 'dd06f9a012f3ef'

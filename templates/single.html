@@ -34,7 +34,9 @@
                 <div class="col-lg-8">
                     <!-- News Detail Start -->
                     <div class="position-relative mb-3">
+                        <div>
                                                         <h3 class="mb-3">{{ post.title }}</h3>
+                        </div>
                         {% if post.image %}
                         <img class="img-fluid w-100" src="{{ post.image.url }}" style="object-fit: cover;">
                 {% else %}
@@ -54,7 +56,11 @@
                             <div class="mb-3">
                                 <a href="">{{ post.category }}</a>
                                 <span class="px-1">/</span>
-                                <span>{{ post.post_date }}</span>
+                                                 <i class="text-center"><span>{% bs_icon 'clock' size='1.0em' %}{{ post.post_date }}</span></i>
+                                <span>/</span>
+                                                                  <i> {% bs_icon 'eye' size='1.0em' %}{{ post.views }}</i>
+
+
                             </div>
                             {% if post.audio %}
                             <audio controls  src="{{ post.audio.url }}" >{{post.audio}}</audio>
@@ -65,12 +71,10 @@
                                                                <h4 class="mb-3">{{ post.text|safe }}</h4>
 
                                 <p></p>
-                                <i class="text-end"> {% bs_icon 'clock' size='1.0em' %}{{ post.post_date }}</i>
                             </div>
                         </div>
                     </div>
                     <p>{% translate 'Muolif' %}: {{post.owner}}</p>
-                                   <i class="text-end"> {% bs_icon 'eye' size='1.5em' %}  {{ post.views }}</i>
 
                 </div>
 
@@ -156,5 +160,4 @@
     </div>
     </div>
 </body>
-
 {% endblock %}
